@@ -169,20 +169,18 @@
         <div class="content has-text-justified">
           <h3>Glycan Taxonomy Prediction</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            In the GlycanML benchmark, we study glycan taxonomy prediction on domain, kingdom, phylum, class, order, family, genus and species levels, leading to eight individual tasks. These tasks are formulated as classification problems with 1,737, 922, 415, 210, 101, 39, 11 and 4 biological categories, respectively. We report classification accuracy for each task.
           </p>
           <h3>Glycan Immunogenicity Prediction</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            We formulate this task as a binary classification problem, i.e., predicting whether a glycan is immunogenic or not. We evaluate with the AUPRC metric to measure the trade-off between precision and recall of a model on immunogenic glycans.
           </p>
           <h3>Glycosylation Type Prediction</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
+            Given a glycan, we aim at predicting whether it forms N-glycosylation, O-glycosylation or maintains a free state, formulated as a three-way classification problem. The classification accuracy is used for evaluation. 
           <h3>Protein-Glycan Interaction Prediction</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
+           Given a protein and a glycan, this task aims to regress their binding affinity, where the Z-score transformed relative fluorescence unit represents binding affinity. For this task, we adopt the Spearman's correlation coefficient as the evaluation metric to measure how well a model ranks a set of protein-glycan pairs with different binding affinities. 
         </div>
       </div>
     </div>
