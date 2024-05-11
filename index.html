@@ -206,7 +206,8 @@
         }
 
         table {
-            width: 100%;
+            width: 80%;
+            margin: auto;
             border-collapse: collapse;
             margin-top: 20px;
         }
@@ -238,15 +239,37 @@
         li {
             margin-bottom: 5px;
         }
+
+        .hero {
+            background-color: #f8f9fa;
+            padding: 3rem 1.5rem;
+        }
+
+        .content.has-text-justified {
+            text-align: justify;
+        }
+
+        .title.is-3 {
+            margin-bottom: 2rem;
+        }
     </style>
 </head>
 
 <body>
-    <h1 id="integrated-leaderboard">Leaderboard for Single-Task</h1>
-
-    <ul>
-        <li><strong>Evaluation metric</strong> - Mean Reciprocal Rank (MRR) on all applicable benchmark tasks</li>
-    </ul>
+    <section class="section hero">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Integrated Leaderboard</h2>
+                    <div class="content has-text-justified">
+                        <ul>
+                            <li><strong>Evaluation metric</strong> - Mean Reciprocal Rank (MRR) on all applicable benchmark tasks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <table>
         <thead>
@@ -287,6 +310,7 @@
         </tbody>
     </table>
 </body>
+
   
 <!-- Results -->
 <section class="section hero">
