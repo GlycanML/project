@@ -18,6 +18,11 @@ img {
     margin-bottom: 5px;
 }
 
+.glycanml {
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
 .dnerf {
   font-variant: small-caps;
 }
