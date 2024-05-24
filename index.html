@@ -149,14 +149,16 @@
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Introduction</h2>
         <div class="content has-text-justified">
           <p>
-            Glycans are basic biomolecules and perform essential functions within living organisms. The rapid increase of functional glycan data provides a good opportunity for machine learning solutions to glycan understanding. However, there still lacks a standard machine learning benchmark of glycan function prediction. In this work, we fill this blank by building a comprehensive benchmark for Glycan Machine Learning (GlycanML). The GlycanML benchmark consists of diverse types of tasks including glycan taxonomy prediction, glycan immunogenicity prediction, glycosylation type prediction, and protein-glycan interaction prediction. Glycans can be represented by both sequences and graphs in GlycanML, which enables us to extensively evaluate sequence-based models and graph neural networks (GNNs) on benchmark tasks. In addition, by performing eight glycan taxonomy prediction tasks simultaneously, we set up the GlycanML-MTL testbed for multi-task learning (MTL) algorithms. Experimental results show the superiority of modeling glycans with multi-relational GNNs, and suitable MTL methods can further boost model performance. 
+            We build <b>GlycanML</b>, a comprehensive benchmark for Glycan Machine Learning. 
+            The GlycanML benchmark consists of diverse types of tasks including glycan taxonomy prediction, glycan immunogenicity prediction, glycosylation type prediction, and protein-glycan interaction prediction. 
+            Glycans can be represented by both sequences and graphs in GlycanML, which enables us to extensively evaluate sequence-based models and graph neural networks (GNNs) on benchmark tasks. 
           </p>
         </div>
       </div>
@@ -165,210 +167,123 @@
 </section>
 <!-- End paper abstract -->
 
-<section class="hero is-light is-small">
+<!-- section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
     <h1 class="title is-1 glycanml">
       <span class="protein-centric" style="vertical-align: middle">GlycanML Overview</span>
     </h1>
   </div>
-</section>
+</section -->
   
 <!-- Benchmark tasks -->
 <section class="section hero ">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Benchmark Tasks</h2>
-        <div class="content has-text-justified">
-          <h3>Glycan Taxonomy Prediction</h3>
-          <p>
-            In the GlycanML benchmark, we study glycan taxonomy prediction on domain, kingdom, phylum, class, order, family, genus and species levels, leading to eight individual tasks. These tasks are formulated as classification problems with 1,737, 922, 415, 210, 101, 39, 11 and 4 biological categories, respectively. We report classification accuracy for each task.
-          </p>
-          <h3>Glycan Immunogenicity Prediction</h3>
-          <p>
-            We formulate this task as a binary classification problem, i.e., predicting whether a glycan is immunogenic or not. We evaluate with the AUPRC metric to measure the trade-off between precision and recall of a model on immunogenic glycans.
-          </p>
-          <h3>Glycosylation Type Prediction</h3>
-          <p>
-            Given a glycan, we aim at predicting whether it forms N-glycosylation, O-glycosylation or maintains a free state, formulated as a three-way classification problem. The classification accuracy is used for evaluation. 
-          <h3>Protein-Glycan Interaction Prediction</h3>
-          <p>
-           Given a protein and a glycan, this task aims to regress their binding affinity, where the Z-score transformed relative fluorescence unit represents binding affinity. For this task, we adopt the Spearman's correlation coefficient as the evaluation metric to measure how well a model ranks a set of protein-glycan pairs with different binding affinities. 
-        </div>
-      </div>
+        <h2 class="title is-3">Benchmark Details</h2>
     </div>
   </div>
+
 </section>
 <!-- End Benchmark tasks -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+              <h2 class="title is-3">Leaderboard</h2>
+              <!--div class="content has-text-justified">
+                  <ul>
+                      < li><strong>Evaluation metric</strong> - Mean Reciprocal Rank (MRR) on all applicable benchmark tasks.</li>
+                  </ul>
+              </div -->
+          </div>
+      </div>
 
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-        }
+<table class="my-table" style="margin-top: 1cm; text-align: center;"> 
+  <thead>
+      <tr>
+          <th>Rank</th>
+          <th>Method</th>
+          <th>MRR</th>
+          <th>Ranks: Domain → Interaction</th>
+          <th>Reference</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>RGCN</td>
+          <td>0.651</td>
+          <td>[1, 5, 1, 1, 1, 1, 2, 2, 2, 8 ,3]</td>
+          <td><a href="https://arxiv.org/abs/1703.06103">paper</a></td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>CompGCN</td>
+          <td>0.445</td>
+          <td>[5, 1, 3, 3, 4, 3, 1, 1, 7, 10, 5]</td>
+          <td><a href="https://arxiv.org/abs/1911.03082">paper</a></td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>CNN</td>
+          <td>0.402</td>
+          <td>[7, 6, 2, 2, 2, 2, 3, 5, 3, 2, 4]</td>
+          <td><a href="https://ieeexplore.ieee.org/abstract/document/726791">paper</a></td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>LSTM</td>
+          <td>0.298</td>
+          <td>[9, 9, 6, 7, 6, 6, 9, 10, 1, 5, 1]</td>
+          <td><a href="https://ieeexplore.ieee.org/abstract/document/6795963">paper</a></td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>ResNet</td>
+          <td>0.261</td>
+          <td>[8, 8, 7, 6, 5, 8, 8, 9, 4, 1, 2]</td>
+          <td><a href="https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html">paper</a></td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>GIN</td>
+          <td>0.250</td>
+          <td>[2, 3, 4, 4, 10, 5, 6, 6, 6, 4, 6]</td>
+          <td><a href="https://arxiv.org/abs/1810.00826">paper</a></td>
+      </tr>
+      <tr>
+          <td>7</td>
+          <td>MPNN</td>
+          <td>0.211</td>
+          <td>[6, 7, 5, 5, 3, 4, 4, 4, 10, 3, 10]</td>
+          <td><a href="https://proceedings.mlr.press/v70/gilmer17a">paper</a></td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>GAT</td>
+          <td>0.194</td>
+          <td>[4, 2, 8, 9, 7, 7, 5, 3, 9, 9, 9]</td>
+          <td><a href="https://arxiv.org/abs/1710.10903">paper</a></td>
+      </tr>
+      <tr>
+          <td>9</td>
+          <td>GCN</td>
+          <td>0.157</td>
+          <td>[3, 4, 10, 8, 8, 9, 7, 7, 8, 7, 8]</td>
+          <td><a href="https://arxiv.org/abs/1609.02907">paper</a></td>
+      </tr>
+      <tr>
+          <td>10</td>
+          <td>Transformer</td>
+          <td>0.123</td>
+          <td>[10, 10, 9, 10, 9, 10, 10, 8, 5, 6, 7]</td>
+          <td><a href="https://proceedings.neurips.cc/paper_files/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html">paper</a></td>
+      </tr>
+  </tbody>
+</table>
+</section>
 
-        table {
-            width: 60%;
-            margin: auto;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
 
-        th,
-        td {
-            border: 1px solid #dddddd;
-            text-align: center;
-            padding: 8px;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        ul {
-            margin-left: 20px;
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
-        .hero {
-            background-color: #f8f9fa;
-            padding: 3rem 1.5rem;
-        }
-
-        .content.has-text-justified {
-            text-align: justify;
-        }
-
-        .title.is-3 {
-            margin-bottom: 2rem;
-        }
-    </style>
-</head>
-
-<body>
-    <section class="section hero">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column">
-                    <h2 class="title is-3">Leaderboard</h2>
-                    <div class="content has-text-justified">
-                        <ul>
-                            <li><strong>Evaluation metric</strong> - Mean Reciprocal Rank (MRR) on all applicable benchmark tasks.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Method</th>
-                <th>MRR</th>
-                <th>Ranks: Domain → Interaction</th>
-                <th>Reference</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>RGCN</td>
-                <td>0.651</td>
-                <td>[1, 5, 1, 1, 1, 1, 2, 2, 2, 8 ,3]</td>
-                <td><a href="https://arxiv.org/abs/1703.06103">paper</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>CompGCN</td>
-                <td>0.445</td>
-                <td>[5, 1, 3, 3, 4, 3, 1, 1, 7, 10, 5]</td>
-                <td><a href="https://arxiv.org/abs/1911.03082">paper</a></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>CNN</td>
-                <td>0.402</td>
-                <td>[7, 6, 2, 2, 2, 2, 3, 5, 3, 2, 4]</td>
-                <td><a href="https://ieeexplore.ieee.org/abstract/document/726791">paper</a></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>LSTM</td>
-                <td>0.298</td>
-                <td>[9, 9, 6, 7, 6, 6, 9, 10, 1, 5, 1]</td>
-                <td><a href="https://ieeexplore.ieee.org/abstract/document/6795963">paper</a></td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>ResNet</td>
-                <td>0.261</td>
-                <td>[8, 8, 7, 6, 5, 8, 8, 9, 4, 1, 2]</td>
-                <td><a href="https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html">paper</a></td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>GIN</td>
-                <td>0.250</td>
-                <td>[2, 3, 4, 4, 10, 5, 6, 6, 6, 4, 6]</td>
-                <td><a href="https://arxiv.org/abs/1810.00826">paper</a></td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>MPNN</td>
-                <td>0.211</td>
-                <td>[6, 7, 5, 5, 3, 4, 4, 4, 10, 3, 10]</td>
-                <td><a href="https://proceedings.mlr.press/v70/gilmer17a">paper</a></td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>GAT</td>
-                <td>0.194</td>
-                <td>[4, 2, 8, 9, 7, 7, 5, 3, 9, 9, 9]</td>
-                <td><a href="https://arxiv.org/abs/1710.10903">paper</a></td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>GCN</td>
-                <td>0.157</td>
-                <td>[3, 4, 10, 8, 8, 9, 7, 7, 8, 7, 8]</td>
-                <td><a href="https://arxiv.org/abs/1609.02907">paper</a></td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>Transformer</td>
-                <td>0.123</td>
-                <td>[10, 10, 9, 10, 9, 10, 10, 8, 5, 6, 7]</td>
-                <td><a href="https://proceedings.neurips.cc/paper_files/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html">paper</a></td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-  
 <!-- Results -->
 <!-- <section class="section hero">
   <div class="container is-max-desktop">
