@@ -60,23 +60,34 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Minghao Xu</a>,</span>
+                <a href="https://chrisallenming.github.io/" target="_blank">Minghao Xu</a><sup style="color:#ed4b82;">1</sup><sup>,</sup><sup style="color:#0664d0;">2</sup><sup>,</sup><sup style="color:#6fbf73;">3</sup>,</span>
                 <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Yunteng Geng</a><sup>*</sup>,</span>
+                  <a href="https://github.com/MatheusNasci" target="_blank">Yunteng Geng*</a><sup style="color:#ed4b82;">1</sup>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Yihang Zhang</a><sup>*</sup>, <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Ling Yang</a>, 
+                    <a href="https://github.com/yhzhang79" target="_blank">Yihang Zhang*</a><sup style="color:#ed4b82;">1</sup>, <span class="author-block">
+                    <a href="https://yangling0818.github.io/" target="_blank">Ling Yang</a><sup style="color:#ed4b82;">1</sup>, 
                   </span> <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Jian Tang</a>, 
+                    <a href="https://jian-tang.com/" target="_blank">Jian Tang</a><sup style="color:#0664d0;">2</sup><sup>,</sup><sup style="color:#6fbf73;">3</sup><sup>,</sup><sup style="color:#ffac33;">4</sup><sup>,</sup><sup style="color:#886a50;">5</sup>, 
                   </span> <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Wentao Zhang</a><sup>†</sup>
+                    <a href="https://zwt233.github.io/" target="_blank">Wentao Zhang†<sup style="color:#ed4b82;">1</sup></a>
                   </span>
                   </span>
                   </div>
+                  
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup style="color:#ed4b82;">1</sup>Peking University,</span>
+                    <span class="author-block"><sup style="color:#0664d0;">2</sup>Mila - Québec AI Institute,</span> 
+                    <span class="author-block"><sup style="color:#6fbf73;">3</sup>BioGeometry,</span>
+                    <span class="author-block"><sup style="color:#ffac33;">4</sup>HEC Montréal,</span>
+                    <span class="author-block"><sup style="color:#886a50;">5</sup>CIFAR AI Research Chair</span>
+                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+                  </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution</small></span>
-                    <span class="eql-cntrb"><small><br><sup>†</sup>Corresponding Author</small></span>
+                    <span class="author-block">*Equal Contribution</span>,
+                    <span class="author-block">†Corresponding Author</span><br>
+                    <span class="author-block"><a href="mailto:minghao.xu@mila.quebec">minghao.xu@mila.quebec</a>,</span>
+                    <span class="author-block"><a href="mailto:wentao.zhang@pku.edu.cn">wentao.zhang@pku.edu.cn</a></span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -105,7 +116,7 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/ChrisAllenMing/TorchGlycan/tree/benchmark" target="_blank"
+                    <a href="https://github.com/GlycanML/GlycanML" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -159,6 +170,7 @@
             We build <b>GlycanML</b>, a comprehensive benchmark for Glycan Machine Learning. 
             The GlycanML benchmark consists of diverse types of tasks including glycan taxonomy prediction, glycan immunogenicity prediction, glycosylation type prediction, and protein-glycan interaction prediction. 
             Glycans can be represented by both sequences and graphs in GlycanML, which enables us to extensively evaluate sequence-based models and graph neural networks (GNNs) on benchmark tasks. 
+            In addition, by performing eight glycan taxonomy prediction tasks simultaneously, we set up the <b>GlycanML-MTL</b> testbed for multi-task learning (MTL) algorithms.
           </p>
         </div>
       </div>
@@ -179,9 +191,32 @@
 <section class="section hero ">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Benchmark Details</h2>
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Benchmark Tasks</h2>
+        <div style="margin-bottom: 10px;">
+        <img src="./static/images/stat.png" width="100%" alt="">
+        </div>
+        <div class="content has-text-justified">
+            <p><b>Glycan Taxonomy Prediction.</b> We study glycan taxonomy prediction on domain,
+            kingdom, phylum, class, order, family, genus and species levels, leading to eight individual tasks.
+            These tasks are formulated as classification problems with 4, 11, 39, 101, 210, 415, 922 and 1,737 biological categories, respectively.
+            We collect 13,209 glycans in <a href="https://webapps.wyss.harvard.edu/sugarbase/">SugarBase</a> that are fully annotated with taxonomy labels.
+          </p>
+          <p><b>Glycan Immunogenicity Prediction.</b> We formulate this task as a binary classification problem, i.e., predicting whether a glycan is immunogenic or not. 
+            We select out 1,320 glycans in <a href="https://webapps.wyss.harvard.edu/sugarbase/">SugarBase</a> whose immunogenicity is annotated based on evidences in literature.
+          </p>
+          <p><b>Glycosylation Type Prediction.</b> Given a glycan, we aim at predicting whether it forms N-glycosylation, O-glycosylation or maintains a free state, formulated as a three-way classification problem. 
+            We traverse the <a href="https://glyconnect.expasy.org/">GlyConnect</a> database and select 1,683 glycans with glycosylation annotations.
+          </p>
+          <p><b>Protein-Glycan Interaction Prediction.</b> Given a protein and a glycan, this task aims to regress their binding affinity, where the Z-score transformed relative fluorescence unit represents binding affinity. 
+            We build this benchmark dataset upon 564,647 protein-glycan interactions deposited in the <a href="https://github.com/BojarLab/LectinOracle">LectinOracle</a> database.
+          </p>  
+        </div>
+      </div>
     </div>
   </div>
+</section>
+<!-- End Benchmark tasks -->
 
 </section>
 <!-- End Benchmark tasks -->
@@ -228,7 +263,7 @@
           <td>CNN</td>
           <td>0.402</td>
           <td>[7, 6, 2, 2, 2, 2, 3, 5, 3, 2, 4]</td>
-          <td><a href="https://ieeexplore.ieee.org/abstract/document/726791">paper</a></td>
+          <td><a href="https://arxiv.org/abs/2011.03443">paper</a></td>
       </tr>
       <tr>
           <td>4</td>
